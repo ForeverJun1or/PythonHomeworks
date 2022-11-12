@@ -7,12 +7,16 @@ from random import choice
 options = [
     "Rock",
     "Scissors",
-    "Paper"
+    "Paper",
+    "Lizard",
+    "Spock",
 ]
 
-rules = {"Rock": "Scissors",
-         "Paper": "Rock",
-         "Scissors": "Paper"
+rules = {"Rock": "Scissors_Lizard",
+         "Paper": "Rock_Spock",
+         "Scissors": "Paper_Lizard",
+         "Lizard": "Spock_Paper",
+         "Spock": "Scissors_Rock",
          }
 
 
@@ -23,8 +27,8 @@ def get_player_choise():
     :return:option
     """
     while True:
-        player_input = input("Оберіть один з варіантів:\n1 - Камінь\n2 - Ножиці\n3 - Бумага\n\n")
-        if player_input in "123":
+        player_input = input("Оберіть один з варіантів:\n1 - Камінь\n2 - Ножиці\n3 - Бумага\n4 - Ящерка\n5 - Спок\n\n")
+        if player_input in "12345":
             option = options[int(player_input) - 1]
             return option
 
@@ -43,7 +47,7 @@ def play_game(player_choise, computer_choise):
     result = ""
     if player_choise == computer_choise:
         result = "Нічия!"
-    elif rules[player_choise] == computer_choise:
+    elif rules[player_choise] in computer_choise:
         result = "Вітаємо, Ви перемогли!"
     else:
         result = "Нажаль, цього разу переміг комп'ютер!"
@@ -76,5 +80,6 @@ def start_game():
         players_answer = get_players_answer(f"\nБажаєте зіграти ще?\n1 - Так\n2 - Ні\n")
         if players_answer == '2':
             break
+
 
 start_game()
