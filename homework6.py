@@ -6,7 +6,7 @@ print('Завдання №1')
 
 def val_to_float(val):
     try:
-        return float(val.replace(',', '.'))
+        return float(val)
     except Exception as ex:
         print(ex.args)
         return 0
@@ -28,7 +28,7 @@ def try_parse(val1):
     try:
         val1 = int(val1)
     except:
-        val1 = float(val1.replace(',', '.'))
+        val1 = float(val1)
     finally:
         return val1
 
@@ -68,7 +68,9 @@ def correct_write(age):
     var1 = '1'
     var2 = '234'
     var3 = '567890'
-    if age[-1] in var1:
+    if age in range(10,20):
+        return 'років'
+    elif age[-1] in var1:
         return 'рік'
     elif age[-1] in var2:
         return 'роки'
@@ -81,11 +83,13 @@ def age_process(age):
     age = try_parse(age)
     correct_age = correct_write(age)
     if (type(age) == int):
-        if (age > 122):
+        if (age < 1):
+            res = 'Вам не може бути меньше 1 року'
+        elif (age > 122):
             res = f'Рекорд довготривалості життя був зафіксований у Франції і склав 122 роки. Я думаю, що вам не може бути {age} {correct_age}...'
         elif ('7' in str(age)):
             res = f'Вам {age} {correct_age}, вам пощастить!'
-        elif (age < 7):
+        elif (age <7):
             res = f'Тобі ж {age} {correct_age}! Де твої батьки?'
         elif (age < 16):
             res = f'Тобі лише {age} {correct_age}, а це е фільм для дорослих!'
