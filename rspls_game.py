@@ -70,7 +70,7 @@ def play_game(player_choise, computer_choise):
     result = ""
     if player_choise == computer_choise:
         result = "Нічия!"
-    elif rules[player_choise] in computer_choise:
+    elif rules[player_choise].find(computer_choise)>-1:
         result = "Вітаємо, Ви перемогли!"
     else:
         result = "Нажаль, цього разу переміг комп'ютер!"
