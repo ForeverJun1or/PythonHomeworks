@@ -36,8 +36,7 @@ def get_last_game_num():
     with open(stat_file_path, "r") as stat:
         try:
             d1 = stat.read().splitlines()
-            d1.sort(reverse=True)
-            last_game_number = int(d1[0].partition('.')[0])
+            last_game_number = int(d1[len(d1)-3].partition('.')[0])
             return last_game_number
         except:
             return -1
