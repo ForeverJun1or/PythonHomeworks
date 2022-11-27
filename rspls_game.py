@@ -91,14 +91,31 @@ def get_players_answer(question):
 
 
 def save_result(player_choise, computer_choise, result):
+    """function what save result in file
+
+    :arg 
+    :type str
+    """
     global last_game_number
     number_of_game = last_game_number + 1
     with open(stat_file_path, "a+") as stat_file:
         stat_file.write(
-            f"{number_of_game}. Гра відбулася {datetime.now().strftime('%d.%m.%Y %H:%M:%S')}. Користувач вибрав {player_choise}. Комп'ютер вибрав {computer_choise}. {result}\n")
+            f"{number_of_game}. Гра відбулася {datetime.now().strftime('%d.%m.%Y %H:%M:%S')}. Користувач вибрав {player_choise}. Комп'ютер вибрав {computer_choise}. {result}")
     last_game_number += 1
 
+def benchmark(func):
+    import time
+    def wrapper():
+        start = time.time()
+        func()
+        end = time.time()
+        print(f'Час гри: {(end-start):.2} секунд.')
+        with open(stat_file_path, "a+") as stat_file:
+            stat_file.write(
+                f"Гра тривала {(end-start):.2} секунд(-и).\n\n")
+    return wrapper
 
+@benchmark
 def start_game():
     """Program main function. Start all over functions, save its returns in variables if needed (inside itself)."""
     player_choise = get_player_choise()
