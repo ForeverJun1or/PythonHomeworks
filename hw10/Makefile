@@ -6,6 +6,6 @@ setup: requirements.txt
 	mypy library.py
 	mypy main.py
 	pytest
-	@echo 'setup has started'
+	@echo 'setup has ended'
 run:
 	python main.py
