@@ -139,16 +139,16 @@ class Triangle(Figure):
         return self.area() != other.area() if isinstance(other, Triangle) else False
 
     def __gt__(self, other):
-        return self.area()>other.area() if isinstance(other, Triangle) else False
+        return self.area() > other.area() if isinstance(other, Triangle) else False
 
     def __lt__(self, other):
-        return self.area()<other.area() if isinstance(other, Triangle) else False
+        return self.area() < other.area() if isinstance(other, Triangle) else False
 
     def __ge__(self, other):
-        return self.area()>=other.area() if isinstance(other, Triangle) else False
+        return self.area() >= other.area() if isinstance(other, Triangle) else False
 
     def __le__(self, other):
-        return self.area()<=other.area() if isinstance(other, Triangle) else False
+        return self.area() <= other.area() if isinstance(other, Triangle) else False
 
     def __str__(self):
         return f'{self.first_point.x},{self.first_point.y}--{self.second_point.x},{self.second_point.y}--{self.third_point.x},{self.third_point.y}'
