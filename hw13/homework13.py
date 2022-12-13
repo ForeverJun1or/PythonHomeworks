@@ -14,5 +14,8 @@ def create_triangle():
     print(f'Площа трикутника дорівнює {triangle1_area}')
     print(str(triangle1))
 
+    triangle2 = Triangle(Point(0,0),Point(0,5),Point(5,0))
+    triangle2_area = triangle2.area()
+    print(triangle1 == triangle2)
 if __name__ == "__main__":
     create_triangle()

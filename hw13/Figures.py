@@ -43,7 +43,7 @@ class Point:
     def y(self):
         return self._y
 
-    @x.setter
+    @y.setter
     def y(self, value):
         if not isinstance(value, (int, float)):
             raise TypeError
@@ -73,7 +73,7 @@ class Line(Figure):
         return self._end
 
     @end.setter
-    def end_(self, value):
+    def end(self, value):
         if not isinstance(value, Point):
             raise TypeError
         self._end = value
@@ -132,17 +132,23 @@ class Triangle(Figure):
         result = math.sqrt(pp.__round__(2)).__round__(2)
         return result
 
-    # def __gt__(self, other: Triangle):
-    #     return self.area() > other.
+    def __eq__(self, other):
+        return self.area() == other.area() if isinstance(other, Triangle) else False
+
+    def __ne__(self, other):
+        return self.area() != other.area() if isinstance(other, Triangle) else False
+
+    def __gt__(self, other):
+        return self.area()>other.area() if isinstance(other, Triangle) else False
 
     def __lt__(self, other):
-        return len(self) < len(other)
+        return self.area()<other.area() if isinstance(other, Triangle) else False
 
     def __ge__(self, other):
-        return len(self) >= len(other)
+        return self.area()>=other.area() if isinstance(other, Triangle) else False
 
     def __le__(self, other):
-        return len(self) <= len(other)
+        return self.area()<=other.area() if isinstance(other, Triangle) else False
 
     def __str__(self):
         return f'{self.first_point.x},{self.first_point.y}--{self.second_point.x},{self.second_point.y}--{self.third_point.x},{self.third_point.y}'
