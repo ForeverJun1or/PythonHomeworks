@@ -6,16 +6,14 @@ def create_triangle():
     second_point = Point(0, 5)
     third_point = Point(5, 0)
     triangle1 = Triangle(first_point, second_point, third_point)
-    print(
-        f'Створено трикутник №1 зі сторонами:')
+    print('Створено трикутник №1 зі сторонами:')
     triangle1_area = triangle1.area()
     print(str(triangle1))
     first_point2 = Point(0, 0)
     second_point2 = Point(0, 6)
     third_point2 = Point(5, 0)
     triangle2 = Triangle(first_point2, second_point2, third_point2)
-    print(
-        f'Створено трикутник №2 зі сторонами:')
+    print('Створено трикутник №2 зі сторонами:')
     triangle2_area = triangle2.area()
     print(str(triangle2))
     print(f'Площа трикутника №1 дорівнює {triangle1_area}')
