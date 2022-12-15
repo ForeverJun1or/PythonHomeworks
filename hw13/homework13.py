@@ -7,7 +7,7 @@ def create_triangle():
     third_point = Point(5, 0)
     triangle1 = Triangle(first_point, second_point, third_point)
     print(
-        f'Створено трикутник №1 зі сторонами:\n1:{first_point.x},{first_point.y}\n2:{second_point.x},{second_point.y}\n3:{third_point.x},{third_point.y}')
+        f'Створено трикутник №1 зі сторонами:')
     triangle1_area = triangle1.area()
     print(str(triangle1))
     first_point2 = Point(0, 0)
@@ -15,8 +15,9 @@ def create_triangle():
     third_point2 = Point(5, 0)
     triangle2 = Triangle(first_point2, second_point2, third_point2)
     print(
-        f'Створено трикутник №2 зі сторонами:\n1:{first_point2.x},{first_point2.y}\n2:{second_point2.x},{second_point2.y}\n3:{third_point2.x},{third_point2.y}')
+        f'Створено трикутник №2 зі сторонами:')
     triangle2_area = triangle2.area()
+    print(str(triangle2))
     print(f'Площа трикутника №1 дорівнює {triangle1_area}')
     print(f'Площа трикутника №2 дорівнює {triangle2_area}')
     print(f'Трикутник №1 дорівнює Трикутнику №2: {triangle1 == triangle2}')
