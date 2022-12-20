@@ -42,7 +42,7 @@ class Player:
     def __init__(self, player_type: str):
         if not isinstance(player_type, str):
             raise TypeError
-        if player_type != 'human' and player_type != 'computer':
+        if player_type != 'human' or player_type != 'computer':
             raise ValueError
         self._player_type = player_type
 

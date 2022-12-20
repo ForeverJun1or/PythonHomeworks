@@ -8,3 +8,4 @@ setup: ../hw14/requirements.txt
 	@echo 'setup has ended'
 run:
 	python main.py
+
