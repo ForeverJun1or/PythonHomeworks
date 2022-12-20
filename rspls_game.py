@@ -106,12 +106,13 @@ def benchmark(func):
     import time
     def wrapper():
         start = time.time()
-        func()
+        result = func()
         end = time.time()
         print(f'Час гри: {(end-start):.2} секунд.')
         with open(stat_file_path, "a+") as stat_file:
             stat_file.write(
                 f"Гра тривала {(end-start):.2} секунд(-и).\n\n")
+        return result
     return wrapper
 
 @benchmark
