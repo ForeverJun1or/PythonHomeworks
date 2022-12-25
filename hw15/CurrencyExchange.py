@@ -4,7 +4,7 @@ import requests
 
 
 class Exchange(abc.ABC):
-
+    """Abstract class Exchange if i'll implemented not only NBU exchange"""
     @staticmethod
     @abc.abstractmethod
     def get_cur_exchange(user_date: date):
@@ -22,6 +22,9 @@ class Exchange(abc.ABC):
 
 
 class ExchangeNBU(Exchange):
+    """I decided to make all methods static, cause at the moment, the class functionality does not imply any variables.
+    In general, the class has 3 functions, 2 of which are hidden from the user (private), and all functionality is
+    implemented through a call to the get_cur_exchange function"""
     @staticmethod
     def get_cur_exchange(user_date: date):
         try:
