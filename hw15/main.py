@@ -10,6 +10,8 @@ if __name__ == "__main__":
         re_pattern = '(0[1-9]|[12][0-9]|3[01]).(0?[1-9]|1[012]).(20[0-2]\d)$'
         if re.match(re_pattern, str_date):
             user_date = datetime.strptime(str_date, '%d.%m.%Y').date()
+            if user_date > datetime.now().date():
+                continue
             break
 
     # Якщо дату введено вірно, то запускається метод get_cur_exchange(user_date) з класу ExchangeNBU і якщо він
