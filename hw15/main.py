@@ -12,7 +12,9 @@ if __name__ == "__main__":
             user_date = datetime.strptime(str_date, '%d.%m.%Y').date()
             break
 
-    # Якщо дату введено вірно, то запускається метод get_cur_exchange(user_date) з класу ExchangeNBU
+    # Якщо дату введено вірно, то запускається метод get_cur_exchange(user_date) з класу ExchangeNBU і якщо він
+    # коректно відпрацював, то повертає True, та користувач сповіщається про успішну операцію. Якщо ж виникла помилка
+    # користувач також побачить повідомлення про це, а інформація про помилку буде знаходитись у файлі log.txt
     if CurrencyExchange.ExchangeNBU.get_cur_exchange(user_date):
 
         print(f'Звіт по курсу валют сформовано у файл \'{user_date.strftime("%d_%m_%Y")}_NBU.txt\'')
